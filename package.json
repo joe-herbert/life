@@ -1,0 +1,19 @@
+{
+  "name": "life",
+  "version": "1.0.0",
+  "description": "about my life",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joe-herbert/life.git"
+  },
+  "author": "Joe Herbert (https://joeherbert.dev)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joe-herbert/life/issues"
+  },
+  "homepage": "https://github.com/joe-herbert/life#readme"
+}
