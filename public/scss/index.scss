@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Muli&display=swap');
+
+@font-face {
+    font-style: normal;
+    font-weight: normal;
+    font-family: 'Monthoers';
+    src: url('../fonts/monthoers-webfont.woff2') format('woff2'),
+        url('../fonts/monthoers-webfont.woff') format('woff');
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: #d1d1d1;
+    font-family: 'Muli', Arial, sans-serif;
+    overflow: hidden;
+}
+
+.noselect {
+    user-select: none;
+}
+
+.hide {
+    display: none;
+}
+
+.navBtn {
+    position: fixed;
+    transform: scale(1);
+    color: white;
+    font-size: 25px;
+    transition: transform 0.3s;
+    cursor: pointer;
+    z-index: 100;
+
+    &:hover {
+        transform: scale(1.3);
+    }
+
+    &#previous:hover,
+    &#next:hover {
+        transform: translateY(-50%) scale(1.3);
+    }
+
+    &#contents {
+        top: 15px;
+        left: 15px;
+    }
+
+    &#user {
+        top: 15px;
+        right: 15px;
+    }
+
+    &#previous {
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+    }
+
+    &#next {
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+    }
+}
+
+.jhFooter {
+    position: fixed;
+    right: 20px;
+    bottom: 10px;
+    transform: scale(1);
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    font-family: 'Monthoers', sans-serif;
+    text-decoration: none;
+    transition: transform 0.3s;
+    cursor: pointer;
+    z-index: 100;
+
+    &:hover {
+        transform: scale(1.3);
+    }
+}
+
+.sidePage {
+    width: 100vw;
+    max-width: 800px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+
+    &.show {
+        box-shadow: 0 0 10px 0 black;
+    }
+
+    .closeSidePage {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+}
+
+#contentsPage {
+    left: -100vw;
+    background: linear-gradient(135deg, #6b6b6b 0%, #434242 100%) #4d4d4d;
+    transition: left 1s;
+
+    &.show {
+        left: 0;
+    }
+
+    #search {
+        width: 80%;
+        position: absolute;
+        top: 100px;
+        left: 10%;
+        padding: 0 15px;
+        box-sizing: border-box;
+        border: 1px solid white;
+        color: black;
+        background-color: white;
+        font-size: 20px;
+        line-height: 40px;
+    }
+
+    #contentsWrapper {
+        width: 80%;
+        position: absolute;
+        top: 180px;
+        left: 10%;
+        color: white;
+        background-color: transparent;
+
+        .contentsItem {
+            display: block;
+            font-size: 30px;
+            cursor: pointer;
+
+            &:hover>.contentsTitle {
+                margin-left: 10px;
+            }
+
+            .contentsTitle {
+                transition: margin 0.4s;
+            }
+        }
+    }
+}
+
+#userPage {
+    right: -100vw;
+    color: white;
+    background: linear-gradient(-135deg, #6b6b6b 0%, #434242 100%) #4d4d4d;
+    transition: right 1s;
+
+    &.show {
+        right: 0;
+    }
+
+    h2 {
+        margin: 55px 0;
+        font-size: 35px;
+        text-align: center;
+    }
+}
+
+form {
+    margin: 0 auto;
+    padding: 20px;
+
+    &.limitWidth {
+        max-width: 500px;
+    }
+
+    input,
+    textarea,
+    select {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px 15px;
+        box-sizing: border-box;
+        border: 1px solid #d0cece;
+        font: inherit;
+        font-weight: normal;
+    }
+
+    button {
+        margin: 20px auto;
+    }
+
+    a {
+        color: white;
+    }
+}
+
+button {
+    display: block;
+    padding: 5px 20px;
+    border: none;
+    box-shadow: 0 0 15px -10px black;
+    color: white;
+    background-color: #1e1e1e;
+    font-size: 18px;
+    text-transform: uppercase;
+    line-height: 40px;
+    transition: background-color 0.4s, transform 0.4s;
+    cursor: pointer;
+    letter-spacing: 2px;
+
+    &.inline-block {
+        display: inline-block;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    &:hover {
+        background-color: black;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+#pagesWrapper {
+    width: auto;
+    height: 100vh;
+    font-size: 0;
+    font-family: 'Caveat', Arial, sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    scroll-behavior: smooth;
+
+    .page {
+        display: inline-block;
+        width: 100vw;
+        height: 100vh;
+        transform: scale(1);
+        vertical-align: middle;
+        color: white;
+        background-color: #2b2b2b;
+        font-size: 18px;
+        transition: transform 1s;
+    }
+
+    &.moving .page {
+        transform: scale(0.8);
+    }
+}
+
+// INDIVIDUAL PAGE STYLES
+
+.home {
+    // background: linear-gradient(135deg, #5ef99c 0%, #b100f8 100%) #b100f8;
+
+    #homeWrapper {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+
+        h1 {
+            margin: 0;
+            font-size: 15vw;
+        }
+
+        p {
+            // transform: translateX(10vw);
+            margin: 0;
+            font-size: 4.5vw;
+        }
+    }
+}
+
+.second,
+.third,
+.fourth {
+    text-align: center;
+}
