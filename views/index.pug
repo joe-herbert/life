@@ -1,0 +1,47 @@
+doctype html
+html
+    head
+        title My Life
+        link(rel='stylesheet', href='/css/index.css')
+        script(src="https://kit.fontawesome.com/a55b510a15.js", crossorigin="anonymous")
+        script(src="/js/index.js")
+    body
+        i(onclick="showContents()").fas.fa-ellipsis-v.navBtn#contents
+        #contentsPage.sidePage
+            i(onclick="closeContents()").fas.fa-times.navBtn.closeSidePage
+            input(type="text" onchange="searchContents(this.value)" onkeyup="searchContents(this.value)" placeholder="Search")#search
+            #contentsWrapper
+        i(onclick="showUser()").fas.fa-user-friends.navBtn#user
+        #userPage.sidePage
+            i(onclick="closeUser()").fas.fa-times.navBtn.closeSidePage
+            if user
+                h2 Welcome, #{user.firstname}!
+                button(onclick="logout()") Log Out
+            else
+                #login
+                    form(action='/login', method='POST').limitWidth
+                        h2 Log in/Sign up
+                        label Email:
+                        input(placeholder='Your email', required=true, name='email', type='email', value='')
+                        label Password: 
+                        input(placeholder='Your password', required=true, name='password', type='password', value='')
+                        button Submit
+                        p 
+                            a(href="javascript:void(0);" onclick="forgotPassword()") Forgot your password?
+        i(onclick="pageBackwards()").fas.fa-arrow-left.navBtn#previous
+        i(onclick="pageForwards()").fas.fa-arrow-right.navBtn#next
+        a(href="https://joeherbert.dev").jhFooter JH
+        #pagesWrapper
+            .page.home.active(data-title="Front Cover")
+                #homeWrapper.noselect
+                    h1 My Life
+                    p Joe Herbert
+            .page.second(data-title="Second Page")
+                h1 Hello!
+                h3 This is page 2
+            .page.third(data-title="Third Page")
+                h1 Wow!
+                h3 This is page 3
+            .page.fourth(data-title="Fourth Page")
+                h1 Awesome!
+                h3 This is page 4

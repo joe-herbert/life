@@ -1,19 +1,39 @@
 {
-  "name": "life",
-  "version": "1.0.0",
-  "description": "about my life",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/joe-herbert/life.git"
-  },
-  "author": "Joe Herbert (https://joeherbert.dev)",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/joe-herbert/life/issues"
-  },
-  "homepage": "https://github.com/joe-herbert/life#readme"
+    "name": "life",
+    "version": "1.0.0",
+    "description": "about my life",
+    "main": "bin/www",
+    "scripts": {
+        "serve": "nodemon ./bin/www",
+        "serve:nowatch": "node ./bin/www",
+        "scss": "sass --no-source-map --style=compressed public/scss:public/css",
+        "cssprefix": "postcss public/css/*.css --use autoprefixer --replace --no-map",
+        "css": "npm run-script scss && npm run-script cssprefix",
+        "start:nowatch": "npm run-script css && npm run-script serve:nowatch",
+        "start": "npm run-script scss && npm run-script serve"
+    },
+    "dependencies": {
+        "cookie-parser": "~1.4.4",
+        "debug": "~2.6.9",
+        "express": "~4.16.1",
+        "http-errors": "~1.6.3",
+        "morgan": "~1.9.1",
+        "pug": "2.0.0-beta11"
+    },
+    "devDependencies": {
+        "autoprefixer": "^9.7.5",
+        "nodemon": "^2.0.3",
+        "postcss-cli": "^7.1.0",
+        "sass": "^1.26.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/joe-herbert/life.git"
+    },
+    "author": "Joe Herbert (https://joeherbert.dev)",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/joe-herbert/life/issues"
+    },
+    "homepage": "https://github.com/joe-herbert/life#readme"
 }
